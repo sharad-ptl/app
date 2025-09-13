@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: hello
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://dev.azure.com/sharad-ptl/Platform/_git/app
-    targetRevision: HEAD
+    repoURL: https://github.com/sharad-ptl/app.git
+    targetRevision: feature/initial
     path: dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: hello
 
   syncPolicy:
     syncOptions:
